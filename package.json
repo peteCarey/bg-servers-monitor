@@ -1,0 +1,23 @@
+{
+  "name": "bg-servers-monitor",
+  "version": "1.0.0",
+  "description": "BG Servers Monitoring",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.heroku.com/bg-servers-monitor.git"
+  },
+  "keywords": [
+    "Monitor",
+    "Display",
+    "BG"
+  ],
+  "author": "Peter Carey",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

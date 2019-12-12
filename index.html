@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>BG Production Info</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+  <script> 
+    var displayWindow = null;
+    function myFunction() { 
+        let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=${screen.availWidth},height=${screen.availHeight}`
+        displayWindow = window.open("https://dashboard.heroku.com/apps/api-alp-pz/metrics/web?ending=undefined-hours-ago&starting=undefined-hours-ago", "BG-Monitor", params)
+        
+        openPage("https://dashboard.heroku.com/apps/api-alp-pz/metrics/web?ending=undefined-hours-ago&starting=undefined-hours-ago", 10000)
+
+        openPage("https://rpm.newrelic.com/accounts/1342042/applications/23853986", 20000);
+    
+        openPage("https://rpm.newrelic.com/accounts/1342042/applications/23853986/transactions", 30000);
+    
+        openPage("https://rpm.newrelic.com/accounts/1342042/applications/23853986/datastores#/overview/All?value=total_call_time_per_minute", 40000);
+    
+    }
+    function openPage(page, interval) {
+        setInterval(function() {
+            displayWindow.location.href = page;
+        }, interval);
+    }       
+</script> 
+
+<style>
+html,
+body {
+  height: 100%
+}
+</style>
+
+</head>
+<body>
+    <div class="h-100 row align-items-center">
+        <div class="col text-center">
+            <img src="images/payzone-logo.png">
+            <div><a class="btn btn-large btn-outline-danger" href="#Start" onclick="myFunction()">Start Monitoring Servers...</a></div>
+        </div>
+    </div>    
+<!-- <div class="container">
+    <p class="text-center">
+        <a class="btn btn-primary btn-large" href="#Start" onclick="myFunction()">Start Monitoring</a>
+    </p>
+</div> -->
+</body>
+</html>
